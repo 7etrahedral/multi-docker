@@ -15,7 +15,7 @@ after_success:
   - docker build -t tetrahedral/multi-worker ./worker
 
   # Log in to docker hub
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_LOGIN" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Push docker images to docker hub
   - docker push tetrahedral/multi-client
