@@ -22,3 +22,17 @@ after_success:
   - docker push tetrahedral/multi-nginx
   - docker push tetrahedral/multi-server
   - docker push tetrahedral/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-southeast-1
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-ap-southeast-1-915888772816
+  bucket_path: docker-multi
+  on:
+    branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+      secure: $AWS_SECRET_KEY
+      
